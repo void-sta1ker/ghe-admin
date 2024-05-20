@@ -1,0 +1,57 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "standard-with-typescript",
+    "eslint:recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["tsconfig.json", "tsconfig.worker.json"]
+  },
+  "plugins": ["react", "react-refresh", "@tanstack/query"],
+  "rules": {
+    "react-refresh/only-export-components": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "import/no-absolute-path": "off", // for vite public folder
+    "import/no-unresolved": [2, { "ignore": ["\\.svg$", "\\.webp$"] }],
+    "valid-jsdoc": "error",
+    "@typescript-eslint/triple-slash-reference": "off",
+    "no-console": ["error", { "allow": ["error", "warn", "log"] }],
+    "react/jsx-props-no-spreading": [
+      "error",
+      { "html": "enforce", "custom": "ignore", "explicitSpread": "enforce" }
+    ],
+    "import/extensions": [
+      2,
+      "ignorePackages",
+      {
+        "js": "never", // for react-dom/client
+        "ts": "never",
+        "tsx": "never",
+        "cjs": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./src"]],
+        "extensions": [".ts", ".tsx", ".json"]
+      }
+    }
+  }
+}
